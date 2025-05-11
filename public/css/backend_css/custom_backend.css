@@ -1,0 +1,271 @@
+#imagePreview {
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+
+#imagePreviewEdit {
+  background-position: center center;
+  background-size: cover;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+  display: inline-block;
+}
+
+#imagePreviewBanner {
+  background-position: center center;
+  background-size: cover;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+  display: inline-block;
+}
+/* Layout for this demo */
+.wrap{
+    position: relative;
+    max-width: 1000px;
+    width: 90%;
+    margin: 100px auto;
+  }
+  
+   /* The outer-div to move the elements */
+  .box-video{
+    position: relative;
+    width: 100%;
+    margin:0 auto 20px auto;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+   /* Set Cover aka Background-Image */
+  .box-video .bg-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 2;
+  }
+  
+   /* Add light shade to make play button visible*/
+  .bg-video::after{
+      content:'';
+      position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.1);
+        z-index: 3;
+        }
+  
+  
+  /* The Play-Button using CSS-Only */
+  .box-video .bt-play {
+    position: absolute;
+      top:50%;
+      left:50%;
+      margin:-30px 0 0 -30px;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 50%;
+      text-indent: -999em;
+      cursor: pointer;
+      z-index:2;
+      background: #2e3133;
+      opacity: 0.9;
+      -webkit-transition: all .3s ease-out;
+      transition: all .3s ease-out;
+  }
+  
+  /* The Play-Triangle */
+  .box-video .bt-play:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 0;
+    width: 0;
+    margin: -12px 0 0 -6px;
+    border: solid transparent;
+    border-left-color: #ffffff;
+    border-width: 12px 20px;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+  }
+  
+  .box-video:hover .bt-play {
+    transform: scale(1.1);
+  }
+  
+  /* When Class added the Cover gets hidden... */
+  .box-video.open .bg-video{
+    visibility: hidden;
+    opacity: 0;
+  
+    -webkit-transition: all .6s .8s;
+    transition: all .6s .8s;
+  }
+  
+  /* and iframe shows up */
+  .box-video.open .video-container{
+    opacity: 1;
+    -webkit-transition: all .6s .8s;
+    transition: all .6s .8s;
+  }
+  
+  /* Giving the div ratio of 16:9 with padding */
+  .video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+    margin: 0;
+    z-index: 1;
+      padding-bottom: 56.27198%;
+  }
+  
+  .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+  
+  
+  
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #009fe3;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  
+  .searchTerm:focus{
+    color: #009fe3;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #009fe3;
+    background: #009fe3;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  
+  
+  .video {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 447;
+    height: 300;
+    background: #000; /* Random BG colour for unloaded video elements */
+  }
+  
+  
+  .video-container {
+      /* position: relative; */
+      /* border: 1px solid #111; */
+      cursor: pointer;
+  }
+  
+  .video {
+      /* background: url("../../images/background.jpg"); */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover; /* Resize the background image to cover the entire container */
+      opacity: 0.8;
+  }
+  
+  .video-container img,
+  .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+  
+  .video-container img:hover {
+      opacity: 0.8;
+  }
+  
+  input[id="cb1"] + label {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px dashed #8c8c89;
+      border-radius: 2px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    input[id="cb1"]:checked + label:after {
+      position: relative;
+      top: -9px;
+      left: 2px;
+      content: '\2714';
+      font-size: 34px;
+    }
+    input[id="cb1"] {
+      display: none;
+    }
+  
+    .checkbox-exam {
+      background: #fff;
+      text-align: center;
+    }
+  
+    .div-content-mini-center-change {
+      height: 20vh !important
+    }
+  
+    .div-test-top {
+      text-align: center;
+      color: #40403e;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  
+    .margin-top-style {
+      margin-bottom: 50px;
+    }
+  
+    .disable-links {
+      pointer-events: none;
+      opacity: 0.2;
+    }
+  
+    .image-main {
+      object-fit: contain;
+      height: 500px;
+      width: 100%;
+  }
+
+  .active-group {
+    background-color: #d14;
+    color: white !important;
+  }
+
+  .hidden-create-video {
+    display: none !important;
+  }
